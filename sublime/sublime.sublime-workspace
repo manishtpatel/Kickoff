@@ -1,0 +1,411 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"syn",
+				"synchedBuffer	struct ʈ"
+			],
+			[
+				"prin",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"print",
+				"Println	 ƒ"
+			],
+			[
+				"li",
+				"ListenIP	*net.IPConn, error ƒ"
+			],
+			[
+				"pri",
+				"Printf	n int, err error ƒ"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"GoSublime: ru",
+				"GoSublime: Run build command"
+			],
+			[
+				"GoSublime: fmt",
+				"GoSublime: Fmt and save"
+			],
+			[
+				"GoSublime: for",
+				"GoSublime: Fmt the current file (without saving it)"
+			],
+			[
+				"",
+				"GoSublime: Goto Definition"
+			],
+			[
+				"GoSublime: ",
+				"GoSublime: Browse Files"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 424.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/GitHub/Kickoff"
+	],
+	"file_history":
+	[
+		"/C/Users/manish-patel/Desktop/Update52.sql",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/Documents/Development.txt",
+		"/C/Users/manish-patel/Documents/TODOS",
+		"/C/Users/manish-patel/Documents/Poll",
+		"/C/Users/manish-patel/Box Sync/Notes/IYummy API",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/TalentSIM Content/assessmentresources/mgrassessment/en-US/Scenario1/Resources.json",
+		"/C/Users/manish-patel/Desktop/mp4.search-ms",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/TalentSIM Content/assessmentresources/mgrassessment/en-US/Scenario1/Transitions.xml",
+		"/C/Users/manish-patel/Box Sync/Mercer/Status Call",
+		"/C/Users/manish-patel/Desktop/ECR.sql",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/TalentSIM Content/AssessmentResources/MgrAssessment/en-US/Scenario1/resources.json",
+		"/C/Users/manish-patel/Desktop/dr/DR_COM_Activation_Strings.txt",
+		"/C/Users/manish-patel/Desktop/dr/DR_connectionSettings.config.exclude",
+		"/C/Users/manish-patel/Desktop/dr/DR_Readme.txt",
+		"/C/Users/manish-patel/Desktop/LP.aspx",
+		"//dfwnsmeips04/ips-development/Applications/Deployment/Mercer 360/raterbycampaignfix/runChg.cmd",
+		"//dfwnsmeips04/ips-development/Applications/Deployment/Mercer 360/raterbycampaignfix/360Chg.js",
+		"//dfwnsmeips04/ips-development/Applications/Deployment/Mercer 360/raterbycampaignfix/csp_getRatersByCampaign_Paging.sql",
+		"//dfwnsmeips04/ips-development/Applications/Deployment/Mercer 360/raterbycampaignfix/apply.cmd",
+		"/C/Users/manish-patel/Desktop/DB360/apply.cmd",
+		"/C/Users/manish-patel/Desktop/DB360/runChg.cmd",
+		"/C/Users/manish-patel/Desktop/DB360/360Chg.js",
+		"/C/Users/manish-patel/Desktop/csp_getRatersByCampaign_Paging.sql",
+		"/C/Users/manish-patel/Downloads/DbChanges/Company/CompanyChg.js",
+		"/C/Users/manish-patel/Downloads/DbChanges/DB360/360Chg.js",
+		"/C/Users/manish-patel/Downloads/DbChanges/TASAdmin/TASAdminChg.js",
+		"/C/Users/manish-patel/Downloads/DbChanges/Company/runChg.cmd",
+		"/C/Users/manish-patel/Downloads/DbChanges/Company/apply.cmd",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/TalentSIM Content/AssessmentResources/MgrAssessment/en-US/Scenario1/Transitions.xml",
+		"/C/Users/manish-patel/Documents/TASK DUMP",
+		"/C/Users/manish-patel/Desktop/DemoCompare/global.js",
+		"/C/Users/manish-patel/Desktop/demo.js",
+		"/C/Users/manish-patel/Desktop/assessment.js",
+		"/C/Users/manish-patel/Desktop/AP2Estimates.txt",
+		"/C/Users/manish-patel/Desktop/IIRF (2).ini",
+		"/C/DbChanges_Updated/EO/tbl_Campaign_Email_Language.sql",
+		"/C/Users/manish-patel/Documents/TAS Spring Progress",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/CenseoOnline/SSA/SSA/SSADemo-MP-SPR/SSADemo.vbproj",
+		"/C/Users/manish-patel/Downloads/order.html",
+		"/C/GitHub/friends-classified/web.config",
+		"/C/Program Files/iisnode/setupsamples.bat",
+		"/C/Program Files/iisnode/www/express/web.config",
+		"/C/GitHub/friends-classified/src/web.config",
+		"/C/Program Files/iisnode/www/logging/web.config",
+		"/C/GitHub/friends-classified/src/package.json",
+		"/C/GitHub/SwaminarayanTemple/Index.html",
+		"/C/Users/manish-patel/Documents/GitHub/SwaminarayanTemple/index.html",
+		"/C/tfs.mercer.com/HC.Censeo/Main/Source/CenseoOnline/SSA/SSA/SSADemoWisitia/AssessmentResources/DemoAssessment/en-US/Scenario1/Resources.json",
+		"/C/Users/manish-patel/Desktop/IIRFUAT/censeoonline/IIRF.ini",
+		"/C/DbChanges_Updated/EO/tbl_UI.sql",
+		"/C/DbChanges_Updated/SSA/tbl_Report_Synonyms_language.sql",
+		"/C/DbChanges_Updated/SSA/apply.cmd",
+		"/C/DbChanges_Updated/SSA/csp_GetEmailInfo.sql",
+		"/C/DbChanges_Updated/SSA/runChg.cmd",
+		"/C/DbChanges_Updated/SSA/SSAChg.js",
+		"/C/DbChanges_Updated/SSA/tbl_Campaign_Email_Detail_Language.sql",
+		"/C/DbChanges_Updated/SSA/tbl_Campaign_Email_Master.sql",
+		"/C/DbChanges_Updated/EO/apply.cmd",
+		"/C/DbChanges_Updated/EO/EOChg.js",
+		"/C/DbChanges_Updated/EO/runChg.cmd",
+		"/C/DbChanges_Updated/Db360/tbl_Report_Synonyms_Language.sql",
+		"/C/DbChanges_Updated/Db360/tbl_Profile_Language.sql",
+		"/C/DbChanges_Updated/Db360/tbl_UI_Language.sql",
+		"/C/DbChanges_Updated/Db360/360Chg.js",
+		"/C/DbChanges_Updated/Db360/apply.cmd",
+		"/C/DbChanges_Updated/Db360/runChg.cmd",
+		"/C/DbChanges_Updated/Db360/tbl_Email_Detail_Language.sql",
+		"/C/DbChanges_Updated/Db360/tbl_Email_Master.sql",
+		"/C/Users/manish-patel/Desktop/__app_offline.htm",
+		"/C/Users/manish-patel/Documents/GitHub/SwaminarayanTemple/cname",
+		"//usfkl54vs01vm06/Censeo$/To Review/SourceCode/Censeoonline/360/custom/Ben/ben_login.asp",
+		"/C/Users/manish-patel/Desktop/IIRFUAT/IIRF.dll",
+		"//usfkl54vs01vm06/Censeo$/TalentSIM/Content/AssessmentResources/DemoAssessment/zh-CHS/Scenario5/Resources.json",
+		"/C/Users/manish-patel/Desktop/censeo.reg",
+		"/C/Users/manish-patel/Desktop/IIRF/IIRF - 360.ini",
+		"/C/Users/manish-patel/Desktop/IIRF/IIRF - KT.ini",
+		"/C/Users/manish-patel/Desktop/IIRF/IIRF - EO.ini",
+		"/C/Users/manish-patel/Desktop/IIRF/IIRF - TS.ini",
+		"/C/Users/manish-patel/Desktop/IIRF - KT.ini",
+		"/C/Users/manish-patel/Desktop/IIRF.ini",
+		"/C/Users/manish-patel/Desktop/IIRF - 360.ini",
+		"/C/Users/manish-patel/Desktop/IIRF - EO.ini",
+		"/C/Users/manish-patel/Desktop/IIRF - TS.ini",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/manish-patel/Desktop/Web (3).config",
+		"/C/Users/manish-patel/Desktop/Content/AssessmentResources/MgrAssessment/en-US/Narrator/Resources.json",
+		"/C/Users/manish-patel/Desktop/email.html",
+		"/C/sublimetext/Data/Packages/GoSublime/CHANGELOG.md",
+		"/C/Users/manish-patel/Desktop/emailoriginal.html",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/ProductionBuilds/ReleaseNote/5.2.txt",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/ProductionBuilds/ReleaseNote/5.1.txt",
+		"/C/Temp/azureprod/Web.config",
+		"/C/Users/manish-patel/Documents/GitHub/bootstrap/template/modal/backdrop.html",
+		"/C/Users/manish-patel/Documents/GitHub/bootstrap/template/modal/backdrop.html.js",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/ProductionBuilds/ReleaseNote/5.0.txt",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/ProductionBuilds/ReleaseNote/4.1.txt",
+		"/C/Users/manish-patel/Documents/PatelData/GitRepos/ProdFiles/ProductionBuilds/ReleaseNote/3.1.txt",
+		"/C/Users/manish-patel/Documents/script.sql",
+		"/C/Temp/360ToolsProd/Web.config",
+		"/C/GoTest/src/code.iyummy.com/newmath/sqrt.go",
+		"/C/GoTest/src/code.google.com/p/odbc/mssql_test.go",
+		"/C/GoTest/src/code.iyummy.com/demo/main.go",
+		"/C/go_appengine_sdk_windows_amd64-1.8.8/go_appengine/demos/helloworld/helloworld.go",
+		"/C/Users/manish-patel/Desktop/deadlockquery.sql",
+		"/C/Users/manish-patel/Documents/GitHub/bootstrap/src/modal/modal.js",
+		"/C/GoTest/main.go",
+		"/C/sublimetext/Data/Packages/GoSublime/USAGE.md",
+		"/C/Users/manish-patel/Desktop/talentimpactff.css",
+		"/C/Users/manish-patel/Desktop/talentimpactff_My.css",
+		"//usfkl14as17/360/styles/talentimpactff.css"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"frenchcut",
+			"uat",
+			"demo",
+			"uat",
+			"demo",
+			"demo id",
+			"uat",
+			"NavigationType",
+			"continue",
+			"database",
+			"uat",
+			"navigationty",
+			"50",
+			"sublime",
+			"uat",
+			"healthy",
+			"healthyroad",
+			"uat",
+			"nancy",
+			"uat",
+			"citrix",
+			"wmm200150424",
+			"288",
+			"wmm200151288",
+			"uat",
+			"dba",
+			"database",
+			"UAT",
+			"uat ser",
+			"UAT",
+			"dashboard",
+			"keycode",
+			"uat",
+			"nancy",
+			"dba",
+			"nancy",
+			"ssademo",
+			"azure",
+			"manisht",
+			"manish",
+			"manishtpatel",
+			"azure",
+			"path",
+			"kelly",
+			"facebook",
+			"SwaminarayanLou",
+			"facebook",
+			"HKEY_LOCAL_MACHINE\\SOFTWARE\\",
+			"img",
+			"forbes",
+			"\\r\\n",
+			"delete",
+			"	\n",
+			"#bfbfbf",
+			"dee2e7",
+			"#dee2e7",
+			"#999999",
+			"#f5f1e6",
+			"#7f0000",
+			"#FF0000",
+			"#002c77",
+			"002c77",
+			"#810009",
+			"#460505",
+			"#d7ccb5"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\",
+			"",
+			"dfe3e7",
+			"#404040",
+			"#595997",
+			"#999999",
+			"#f5f5f5"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o://C:\\GoTest":
+	{
+		"height": 130.0
+	},
+	"output.9o://C:\\GoTest\\src\\code.iyummy.com\\demo":
+	{
+		"height": 32.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 185.0
+	},
+	"output.GsDoc-output-output":
+	{
+		"height": 441.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 130.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "sublime.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\GitHub\\friends-classified\\WeYummy.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
