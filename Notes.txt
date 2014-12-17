@@ -1,0 +1,5 @@
+- to run install express, link and run
+	npm install -g express
+	npm link express
+	node ./server.js
+
