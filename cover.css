@@ -1,35 +1,31 @@
-/* Header */
-.header {
-    top: 0px;
-    width: 100%;
-    height: 60px;
-    position: absolute;
-    left: 0px;
-    background-color: #fff;
-    box-shadow: 0px 3px 0px #888888;
+/*Base Style*/
+body, html {
+    /* set body height */
+    height: 100%;
+    min-height: 100%;
 }
 
-.content {
-    margin-left: auto;
-    margin-right: auto;
-}
 
+
+
+
+
+
+/* responsive */
 /* Content */
 @media (min-width: 768px) {
+    /* larger screen set max width of content */
     .content {
         width: 700px;
     }
 }
 
-/*logo*/
-.logo {
-    height: 80px;
-    margin-left: -35px;
-    margin-top: -10px;
-    margin-bottom: -10px;
-}
 
-/*body background*/
+
+
+
+
+/* body background */
 body {
     background-color: #333;
     background-image: url(landing_img_1.jpg);
@@ -41,6 +37,50 @@ body {
     -o-background-size: cover;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*content setup*/
+.content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* Header */
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0px 3px 0px #888888;
+}
+/*logo*/
+.logo {
+    height: 80px;
+    margin-left: -35px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
 /*Header Nav*/
 .header-nav {
     margin-top: 20px;
@@ -81,22 +121,28 @@ body {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body styling */
 .body {
     margin-top: 70px;
     width: 100%;
 }
-
-
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
+.body.content {
+    color: #ffffff;
+    text-align: center;
 }
