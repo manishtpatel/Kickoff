@@ -35,20 +35,46 @@
             </a>
             <ul class="header-nav pull-right">
                 <!--<li class="active"><a href="#">Home</a></li>-->
-                <li><a href="/">Locations</a></li>
+                <li><a href="#locations">Locations</a></li>
                 <!--<li><a href="#">Contact</a></li>-->
             </ul>
         </div>
     </div>
     <div class="body content">
-        <h1 class="cover-heading" style="font-weight:bold;">Opening Early 2015.</h1>
-        <p class="lead" style="font-size:1.8em;">Haircuts for Men and Boys. Kickoff everyday in style, expect nothing but best.</p>
-        <p class="lead">
-                <a id="id" href="#" class="btn btn-lg btn-primary">Learn more</a>
-        </p>
-    </div>
-    <div class="footer content">
+      <span>&nbsp;</span>
+        <h2 class="cover-heading" style="font-weight:bold; margin-top:0px; color: rgb(255, 228, 196);">Opening Early 2015</h2>
+        <hr />
+        <p class="leadx" style="font-size:1.8em;">Haircuts for Men and Boys. Kickoff everyday in style, expect nothing but best</p>
+        <!-- <p class="lead"> -->
+                <a id="id" href="#" class="contact btn btn-primary">
+                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Learn More
+                </a>
+        <!-- </p> -->
+        <h2 id="locations" style="color: rgb(255, 228, 196);">Locations</h2>
+        <div style="text-align:left; margin-left:10px;">
+          <hr style="margin-left:-10px;" />
+                    <h3>
+            <span>Kickoff in Prospect</span>
+            <a class="btn btn-warning" target="_blank" href="https://www.google.com/maps/place/13206+W+U.S.+Hwy+42+%23112,+Prospect,+KY+40059/@38.3652064,-85.6022484,16z/data=!4m2!3m1!1s0x88699d7e0c154739:0x4a5f2bd8862dc871">
+              <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map
+            </a>
+            <a id="hiring" class="btn btn-info">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Now Hiring
+            </a>
+          </h3>
+          <p class="leadx">
+            13206 US-42, Prospect, KY 40059
+            <br />
+            Opening early March
+          </p>
+        </div>
+        <br />
+        <br />
+        <hr />
         <p>© Kickoff Haircuts. Please stay in your locker room till kickoff.</p>
+        <br />
+      </div>
+    <div class="footer content">
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -100,6 +126,7 @@
 
         // Or, use your own custom trigger:
         UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
+        UserVoice.push(['addTrigger', '#hiring', { mode: 'contact' }]);
 
         // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
         UserVoice.push(['autoprompt', {}]);

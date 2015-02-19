@@ -139,11 +139,19 @@ body {
 
 /* body styling */
 .body {
-    margin-top: 70px;
+    /*margin-top: 70px;*/
 }
 .body.content {
     color: #ffffff;
     text-align: center;
+
+    background-color: #888888;
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+}
+.content hr{
+  border-color:#999;
+  margin-top:0px;
 }
 
 
