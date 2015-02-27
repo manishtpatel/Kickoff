@@ -40,41 +40,49 @@
             </ul>
         </div>
     </div>
-    <div class="body content">
-      <span>&nbsp;</span>
-        <h2 class="cover-heading" style="font-weight:bold; margin-top:0px; color: rgb(255, 228, 196);">Opening Early 2015</h2>
-        <hr />
-        <p class="leadx" style="font-size:1.8em;">Haircuts for Men and Boys. Kickoff everyday in style, expect nothing but best</p>
-        <!-- <p class="lead"> -->
-                <a id="id" href="#" class="contact btn btn-primary">
-                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Learn More
+    <!--Use Tab and Tab-Name to display Sections-->
+    <!--Centered content put in the tab-->
+    <div class="tab tab-main">
+        <div class="content">
+            <h1>Opening Early 2015</h1>
+            <p class="lead" style="font-size:1.8em;">Haircuts for Men and Boys. Kickoff everyday in style, expect nothing but best</p>
+            <p class="lead">
+                <a id="id" href="#" class="contact btn btn-primary btn-lg">
+                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>  Learn More
                 </a>
-        <!-- </p> -->
-        <h2 id="locations" style="color: rgb(255, 228, 196);">Locations</h2>
-        <div style="text-align:left; margin-left:10px;">
-          <hr style="margin-left:-10px;" />
-                    <h3>
-            <span>Kickoff in Prospect</span>
-            <a class="btn btn-warning" target="_blank" href="https://www.google.com/maps/place/13206+W+U.S.+Hwy+42+%23112,+Prospect,+KY+40059/@38.3652064,-85.6022484,16z/data=!4m2!3m1!1s0x88699d7e0c154739:0x4a5f2bd8862dc871">
-              <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map
-            </a>
-            <a id="hiring" class="btn btn-info">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Now Hiring
-            </a>
-          </h3>
-          <p class="leadx">
-            13206 US-42, Prospect, KY 40059
-            <br />
-            Opening early March
-          </p>
+            </p>
         </div>
-        <br />
-        <br />
-        <hr />
-        <p>© Kickoff Haircuts. Please stay in your locker room till kickoff.</p>
-        <br />
-      </div>
-    <div class="footer content">
+    </div>
+    <div class="tab tab-locations">
+        <div class="content">
+            <h1 id="locations">Locations</h1>
+            <hr style="margin-top:0;" />
+            <div class="location">
+                <h3>
+                    <span>Kickoff in Prospect</span>
+                    <a class="btn btn-warning" target="_blank" href="https://www.google.com/maps/place/13206+W+U.S.+Hwy+42+%23112,+Prospect,+KY+40059/@38.3652064,-85.6022484,16z/data=!4m2!3m1!1s0x88699d7e0c154739:0x4a5f2bd8862dc871">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map
+                    </a>
+                    <a id="hiring" class="btn btn-info">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Now Hiring
+                    </a>
+                </h3>
+                <p class="leadx">
+                    13206 US-42, Prospect, KY 40059
+                    <br />
+                    Opening early March
+                </p>
+                <br />
+            </div>
+            <div class="location">
+                <h3>Stay tuned for more store announcements</h3>
+            </div>
+        </div>
+    </div>
+    <div class="tab tab-footer">
+        <div class="content">
+            <p>© Kickoff Haircuts. Please stay in your locker room till kickoff.</p>
+        </div>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -133,15 +141,17 @@
     </script>
 
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-57801538-1', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-57801538-1', 'auto');
+        ga('send', 'pageview');
 
-</script>
+    </script>
 
 
 </body>

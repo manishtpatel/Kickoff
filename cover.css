@@ -46,23 +46,11 @@ body {
 
 
 
-
-
-
-
-
-
 /*content setup*/
 .content {
     margin-left: auto;
     margin-right: auto;
 }
-
-
-
-
-
-
 
 
 
@@ -132,27 +120,37 @@ body {
 
 
 
-
-
-
-
-
 /* body styling */
-.body {
-    /*margin-top: 70px;*/
+.tab{
+    padding:10px;
 }
-.body.content {
-    color: #ffffff;
-    text-align: center;
+.tab-main{
+    color:#ffffff;
+    text-align:center;
+}
+.tab-locations{
+    color:#ffffff;
+    background-color: #da883e;
+}
+.tab-footer{
+    background-color: #ddeed5;
+    min-height:200px;
+    color:rgb(64, 64, 64);
+}
 
-    background-color: #888888;
-    /*padding-top: 10px;
-    padding-bottom: 10px;*/
-}
-.content hr{
-  border-color:#999;
-  margin-top:0px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
