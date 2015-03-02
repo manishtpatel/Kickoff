@@ -130,11 +130,11 @@ body {
 }
 .tab-locations{
     color:#ffffff;
-    background-color: #da883e;
+    background-color: #666666;
 }
 .tab-footer{
-    background-color: #ddeed5;
-    min-height:200px;
+    background-color: #CCCC9A;
+    min-height:500px;
     color:rgb(64, 64, 64);
 }
 
