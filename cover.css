@@ -147,8 +147,13 @@ body {
         /*margin-top: 3px;*/
     /*box-shadow: 0px 3px 0px #888888;*/
     border-bottom: 3px #888888 solid;
-
-
+}
+.tab-coupon{
+    color:#ffffff;
+    background-color: #999967;
+        /*margin-top: 3px;*/
+    /*box-shadow: 0px 3px 0px #888888;*/
+    border-bottom: 3px #888888 solid;
 }
 .tab-footer{
     background-color: #CCCC9A;
