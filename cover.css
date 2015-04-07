@@ -77,37 +77,37 @@ body {
     padding-left: 0px;
 }
 
-    .header-nav > li {
-        display: inline-block;
-    }
+.header-nav > li {
+    display: inline-block;
+}
 
-        .header-nav > li + li {
-            margin-left: 20px;
-        }
+.header-nav > li + li {
+    margin-left: 20px;
+}
 
-        .header-nav > li > a {
-            padding-right: 0;
-            padding-left: 0;
-            font-size: 16px;
-            font-weight: bold;
-            color: #888888; /* IE8 proofing */
-            /*color: rgba(0,0,0,.75);*/
-            border-bottom: 2px solid transparent;
-        }
+.header-nav > li > a {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #888888; /* IE8 proofing */
+    /*color: rgba(0,0,0,.75);*/
+    border-bottom: 2px solid transparent;
+}
 
-            .header-nav > li > a:hover,
-            .header-nav > li > a:focus {
-                background-color: transparent;
-                border-bottom-color: #a9a9a9;
-                border-bottom-color: rgba(255,255,255,.25);
-            }
+.header-nav > li > a:hover,
+.header-nav > li > a:focus {
+    background-color: transparent;
+    border-bottom-color: #a9a9a9;
+    border-bottom-color: rgba(255,255,255,.25);
+}
 
-    .header-nav > .active > a,
-    .header-nav > .active > a:hover,
-    .header-nav > .active > a:focus {
-        color: #888888;
-        border-bottom-color: #888888;
-    }
+.header-nav > .active > a,
+.header-nav > .active > a:hover,
+.header-nav > .active > a:focus {
+    color: #888888;
+    border-bottom-color: #888888;
+}
 
 
 
@@ -144,14 +144,14 @@ body {
 .tab-locations{
     color:#ffffff;
     background-color: #666666;
-        /*margin-top: 3px;*/
+    /*margin-top: 3px;*/
     /*box-shadow: 0px 3px 0px #888888;*/
     border-bottom: 3px #888888 solid;
 }
 .tab-coupon{
     color:#ffffff;
     background-color: #999967;
-        /*margin-top: 3px;*/
+    /*margin-top: 3px;*/
     /*box-shadow: 0px 3px 0px #888888;*/
     border-bottom: 3px #888888 solid;
 }
@@ -159,7 +159,7 @@ body {
     background-color: #CCCC9A;
     /* min-height:500px; */
     color:rgb(64, 64, 64);
-        /*margin-top: 3px;*/
+    /*margin-top: 3px;*/
 }
 
 
