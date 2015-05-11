@@ -1,9 +1,9 @@
 // set remote API URL
 // if dev mode 
 if(window.location.href.indexOf('localhost') > -1)
-	remoteURL = "http://localhost:1000"
+	remoteURL = "http://localhost:1000" //dev
 else
-	remoteURL = "http://localhost:1000"
+	remoteURL = "http://weyummy.azurewebsites.net" //prod
 
 waitlistHTML = function() {
     // strap hammer
