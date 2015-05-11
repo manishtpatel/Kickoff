@@ -23,14 +23,11 @@
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     <script>
-    if (window.location.href.indexOf('localhost') > -1)
-    {
+    if (window.location.href.indexOf('localhost') > -1) {
         // dev settings
         remoteURL = "http://localhost:1000"
         fbAppID = '665166830283009'
-    }
-    else
-    {
+    } else {
         // prod settings
         remoteURL = "http://weyummy.azurewebsites.net"
         fbAppID = '585127968286896'
@@ -89,15 +86,23 @@
                         <!-- <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Check-in : 10 min Wait -->
                     </button>
                 </p>
-                <p>
-                    Mon-Fri&nbsp;&nbsp;&nbsp;: 10:00 am – 8:00 pm
-                    <br /> Saturday&nbsp;: 11:00 am – 6:00 pm
-                    <br /> Sunday&nbsp;&nbsp;&nbsp;: Closed
-                </p>
-                <br />
-            </div>
-            <div class="location">
-                <h3>Stay tuned for more store announcements</h3>
+                <div>
+                    <div>
+                        <b style="width:80px; display:inline-block">Mon-Fri</b>
+                        <span>10:00 am – 8:00 pm</span>
+                    </div>
+                    <div>
+                        <b style="width:80px; display:inline-block">Saturday</b>
+                        <span>11:00 am – 6:00 pm</span>
+                    </div>
+                    <div>
+                        <b style="width:80px; display:inline-block">Sunday</b>
+                        <span>11:00 am – 5:00 pm</span>
+                    </div>
+                </div>
+                <div class="location">
+                    <h3>Stay tuned for more store announcements</h3>
+                </div>
             </div>
         </div>
     </div>
