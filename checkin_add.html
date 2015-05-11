@@ -1,89 +1,81 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <!--<link rel="icon" href="../../favicon.ico">-->
-        <title>Kickoff Haircuts</title>
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <!-- Custom styles for this template -->
-        <link href="/cover.css" rel="stylesheet">
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <!-- // <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="../../favicon.ico">-->
+    <title>Kickoff Haircuts</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="/cover.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- // <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body>
-        <style>
-                body {
-                    background-color: #666666;
-                }
-                .content {
-                    width: auto;
-                }
-                .newclient {
-                    padding: 0;
-                    margin: 0;
-                    display: -webkit-box;
-                    display: -moz-box;
-                    display: -ms-flexbox;
-                    display: -webkit-flex;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 10px;
-                }
-                .newclient button {
-                    font-size: 4em;
-                }
-        </style>
-        <div class="tab tab-checkin">
-            <form>
-                <div class="form-group">
-                    <label for="fName">First Name</label>
-                    <input type="text" autocomplete="off" name="fName" class="form-control input-lg" id="fName" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="lName">Last Name</label>
-                    <input type="text" autocomplete="off" class="form-control input-lg" id="lName" name="lName" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" autocomplete="off" class="form-control input-lg" id="email" name="email" placeholder="Enter eMail" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone #</label>
-                    <input type="tel" autocomplete="off" class="form-control input-lg" id="phone" name="phone" placeholder="Enter Phone Number" required>
-                </div>
-                <div class="clearfix">
-                    <a type="submit" class="btn btn-danger btn-lg pull-left" style="font-size:3em;" href="\checkin.html">Cancel</a>
-                    <button type="submit" class="btn btn-success btn-lg pull-right" style="font-size:3em;">Check-in</button>
-                </div>
-            </form>
-        </div>
-        <script>
-            $( "form" ).submit(function( event ) {
-                $.post( "http://localhost:1000/api/ko/checkin_terminal", $(this).serialize(), function(data){
-                    console.log('data received', data);
-                    if(data.success){
-                        alert('Thank you for checking in');
-                        window.location.replace("/waitlist.html");
-                    }else{
-                        alert('You already exists in the system, please try using return customer')
-                        window.location.replace("/checkin.html");
-                    }
-                });
-                event.preventDefault();
-            });
-        </script>
-    </body>
+    <script src="/checkin.js"></script>
+</head>
+
+<body>
+    <style>
+    body {
+        background-color: #666666;
+    }
+    
+    .content {
+        width: auto;
+    }
+    
+    .newclient {
+        padding: 0;
+        margin: 0;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .newclient button {
+        font-size: 4em;
+    }
+    </style>
+    <div class="tab tab-checkin">
+        <form>
+            <div class="form-group">
+                <label for="fName">First Name</label>
+                <input type="text" autocomplete="off" name="fName" class="form-control input-lg" id="fName" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+                <label for="lName">Last Name</label>
+                <input type="text" autocomplete="off" class="form-control input-lg" id="lName" name="lName" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" autocomplete="off" class="form-control input-lg" id="email" name="email" placeholder="Enter eMail" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone #</label>
+                <input type="tel" autocomplete="off" class="form-control input-lg" id="phone" name="phone" placeholder="Enter Phone Number" required>
+            </div>
+            <div class="clearfix">
+                <a type="submit" class="btn btn-danger btn-lg pull-left" style="font-size:3em;" href="\checkin.html">Cancel</a>
+                <button type="submit" class="btn btn-success btn-lg pull-right" style="font-size:3em;">Check-in</button>
+            </div>
+        </form>
+    </div>
+    <script>checkinaddHTML()</script>
+</body>
 </html>

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
-
     <title>Kickoff Haircuts</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <!-- Custom styles for this template -->
     <link href="/cover.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -24,36 +22,35 @@
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
+    <script src="/checkin.js"></script>
 </head>
 
 <body>
     <style>
-        body {
-            background-color: #666666;
-        }
-
-        .content {
-            width: auto;
-        }
-
-        .newclient {
-            padding: 0;
-            margin: 0;
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-        }
-        .newclient button {
-            font-size: 4em;
-        }
-
+    body {
+        background-color: #666666;
+    }
+    
+    .content {
+        width: auto;
+    }
+    
+    .newclient {
+        padding: 0;
+        margin: 0;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .newclient button {
+        font-size: 4em;
+    }
     </style>
     <div class="tab tab-checkin">
         <form>
@@ -67,21 +64,9 @@
             </div>
         </form>
     </div>
-
-        <script>
-            $( "form" ).submit(function( event ) {
-                $.post( "http://localhost:1000/api/ko/checkin_terminal_return", $(this).serialize(), function(data){
-                    console.log('data received', data);
-                    if(data.success){
-                        alert('Thank you for checking in');
-                        window.location.replace("/waitlist.html");
-                    }else{
-                        alert('We can not find you in the system')
-                        // window.location.replace("/checkin.html");
-                    }
-                });
-                event.preventDefault();
-            });
-        </script>
+    <script>
+    checkinselectHTML();
+    </script>
 </body>
+
 </html>
