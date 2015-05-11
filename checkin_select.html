@@ -59,7 +59,7 @@
         <form>
             <div class="form-group">
                 <!--<label for="email">Phone Number</label>-->
-                <input type="email" class="form-control input-lg" id="email" required placeholder="Enter Your Email Address">
+                <input autocomplete="off" type="email" name="email" class="form-control input-lg" id="email" required placeholder="Enter Your Email Address">
             </div>
             <div class="clearfix">
                 <a type="submit" class="btn btn-danger btn-lg pull-left" style="font-size:3em;" href="\checkin.html">Cancel</a>
@@ -68,7 +68,20 @@
         </form>
     </div>
 
-    <script>
-    </script>
+        <script>
+            $( "form" ).submit(function( event ) {
+                $.post( "http://localhost:1000/api/ko/checkin_terminal_return", $(this).serialize(), function(data){
+                    console.log('data received', data);
+                    if(data.success){
+                        alert('Thank you for checking in');
+                        window.location.replace("/waitlist.html");
+                    }else{
+                        alert('We can not find you in the system')
+                        // window.location.replace("/checkin.html");
+                    }
+                });
+                event.preventDefault();
+            });
+        </script>
 </body>
 </html>

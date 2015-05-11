@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
-
     <title>Kickoff Haircuts</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <!-- Custom styles for this template -->
     <link href="/cover.css" rel="stylesheet">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -24,42 +22,44 @@
       <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
 
 <body>
     <style>
-        body {
-            background-color: #666666;
-        }
-
-        .content {
-            width: auto;
-        }
-
-        .admin {
-            display: none;
-        }
+    body {
+        background-color: #666666;
+    }
+    
+    .content {
+        width: auto;
+    }
+    
+    .admin {
+        display: none;
+    }
+    #waitlist{
+        text-transform: capitalize;
+    }
     </style>
     <div class="tab tab-checkin">
         <h1 style="text-align: center;" class="admin">Admin Mode</h1>
         <div class="content clearfix">
-            <a id="admin" style="font-size:4em;" class="label label-danger pull-left">10 minutes wait</a>
+            <a id="admin" style="font-size:4em;" class="label label-danger pull-left"><span id="wait"></span></a>
             <a href="/checkin.html" class="label label-success pull-right" style="font-size: 4em">Check-in</a>
         </div>
-        <div style="margin-left: 15px;">
-            <h1>Manish Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a><h1/>
+        <div id="waitlist" style="margin-left: 15px;">
+            <!--             <h1>Manish Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a><h1/>
             <h1>Parul Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a></h1>
             <h1>AMY Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a></h1>
-            <h1>Jai Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a></h1>
-            <br />
-            <br />
-            <a class="btn btn-primary btn-lg admin" onclick="updateStylistCount()">Number of Stylists</a>
+            <h1>Jai Patel <a class="btn btn-info btn-lg admin">Take</a>&nbsp;<a class="btn btn-danger btn-lg admin">Remove</a></h1> -->
         </div>
+        <br />
+        <br />
+        <a style="margin-left: 15px;" class="btn btn-primary btn-lg admin" onclick="updateStylistCount()">Number of Stylists</a>
     </div>
-
     <script>
+    $(function() {
         var myElement = document.getElementById('admin');
 
         // create a simple instance
@@ -69,15 +69,92 @@
         var showAdmin = false;
 
         // listen to events...
-        mc.on("press", function (ev) {
+        mc.on("press", function(ev) {
             showAdmin = true;
             $('.admin').toggle();
         });
 
-        function updateStylistCount() {
-            var stylistsCount = prompt("# of stylists", 3);
+        updateStylistCount = function() {
+            $.get('http://localhost:1000/api/ko/stylists', function(data) {
+                var stylistsCount = prompt("# of stylists", data.stylists);
+
+                if (stylistsCount) {
+                    $.post('http://localhost:1000/api/ko/stylists', {
+                        stylists: stylistsCount
+                    }, function(data) {
+                        // remove admin mode
+                        $('.admin').toggle();
+                        refreshWaitList();
+                    });
+                }
+            })
+        };
+
+        // bind remove button click
+        $("body").on("click", ".remove", function() {
+            console.log($(this).attr('dId'));
+            $.post('http://localhost:1000/api/ko/takeRemove', {
+                remove: true,
+                take: false,
+                id: $(this).attr('dId')
+            }, function(data) {
+                // remove admin mode
+                $('.admin').toggle();
+                // refresh wait list
+                refreshWaitList();
+            })
+        });
+
+        // bind take button click
+        $("body").on("click", ".take", function() {
+            console.log($(this).attr('dId'));
+            $.post('http://localhost:1000/api/ko/takeRemove', {
+                remove: false,
+                take: true,
+                id: $(this).attr('dId')
+            }, function(data) {
+                // remove admin mode
+                $('.admin').toggle();
+                // refresh wait list
+                refreshWaitList();
+            })
+        });
+
+        refreshWaitList = function() {
+            $.get('http://localhost:1000/api/ko/waitlist', function(data) {
+                console.log('waitlist', data);
+                $('#waitlist').empty();
+                if(data.wait == null){
+                    data.wait = "Closed Now"
+                }else if(data.wait == 0){
+                    data.wait = "No Wait"
+                }else{
+                    data.wait = data.wait + " minutes wait"
+                }
+                $('#wait').html(data.wait);
+                data.list.forEach(function(element) {
+                    var canRemove = '';
+                    if (element.canRemove) {
+                        canRemove = '<a dId="' + element._id + '" class="btn btn-danger btn-lg admin remove">Remove</a>';
+                    }
+                    $('#waitlist').append('<h1>' + element.fName + ' ' + element.lName + ' <a dId="' + element._id + '" class="btn btn-info btn-lg admin take">Take</a>&nbsp;' +
+                        canRemove + '<h1/>');
+                });
+            });
         }
-    
-     </script>
+
+        refreshWaitList();
+
+        // refresh waitlist every 10 seconds
+        setInterval(function() {
+            refreshWaitList();
+        }, 10000);
+
+        setTimeout(function(){
+            location.reload();
+        }, 600000);
+    });
+    </script>
 </body>
+
 </html>
