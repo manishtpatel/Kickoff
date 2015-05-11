@@ -23,7 +23,18 @@
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     <script>
+    if (window.location.href.indexOf('localhost') > -1)
+    {
+        // dev settings
         remoteURL = "http://localhost:1000"
+        fbAppID = '665166830283009'
+    }
+    else
+    {
+        // prod settings
+        remoteURL = "http://localhost:1000"
+        fbAppID = '585127968286896'
+    }
     </script>
 </head>
 
@@ -61,7 +72,7 @@
                 <h3>
                     <span>Kickoff Haircuts in Prospect</span>
                     <a class="btn btn-success" target="_blank" href="https://maps.google.com?q=Kickoff%20Haircuts%2C%2013206%20W%20U.S.%20Highway%2042%2C%20Prospect%2C%20KY%2040059">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map & Open Hours
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map
                     </a>
                     <a id="hiring" class="btn btn-danger">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Now Hiring
@@ -79,9 +90,9 @@
                     </button>
                 </p>
                 <p>
-                    Mon-Fri&nbsp;&nbsp;&nbsp;: 10:00 am – 8:00 pm <br />
-                    Saturday&nbsp;: 11:00 am – 6:00 pm <br />
-                    Sunday&nbsp;&nbsp;&nbsp;: Closed
+                    Mon-Fri&nbsp;&nbsp;&nbsp;: 10:00 am – 8:00 pm
+                    <br /> Saturday&nbsp;: 11:00 am – 6:00 pm
+                    <br /> Sunday&nbsp;&nbsp;&nbsp;: Closed
                 </p>
                 <br />
             </div>
@@ -191,7 +202,7 @@
         <script>
         window.fbAsyncInit = function() {
             FB.init({
-                appId: '665166830283009', // devid
+                appId: fbAppID,
                 xfbml: true,
                 version: 'v2.3'
             });
