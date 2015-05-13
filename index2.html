@@ -288,7 +288,7 @@
 
         function getCheckinStatus(response, checkin) {
             // get checkedin status
-            $.get(remoteURL + '/api/ko/mecheckedin_online', response, function(data) {
+            $.get(remoteURL + '/api/mecheckedin_online', response, function(data) {
                 if (data.found) {
                     $('#checkin').addClass('btn-danger').html(
                         "<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span> You are checked in for next " + data.till + " minutes")
@@ -299,9 +299,9 @@
                 if (checkin) {
                     if (confirm('Checkin Now?')) {
                         // Checkin now
-                        $.post(remoteURL + '/api/ko/checkin_online', response, function(data) {
+                        $.post(remoteURL + '/api/checkin_online', response, function(data) {
                             console.log('checkin_online', data);
-                            alert('You have been checked in for next ' + data.till + ' minutes')
+                            alert('You have been checked in for next 30 minutes')
                                 // redraw checkin
                             getCheckinStatus(response, false);
                         });
@@ -312,7 +312,7 @@
         }
 
         $(function() {
-            $.get(remoteURL + '/api/ko/wait', function(data) {
+            $.get(remoteURL + '/api/wait', function(data) {
                 if (data.wait == 0) {
                     data.wait = "No Wait"
                 } else if (data.wait == null) {
