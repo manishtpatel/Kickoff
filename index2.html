@@ -297,7 +297,7 @@
                 }
                 // checkin needed
                 if (checkin) {
-                    if (confirm('Checkin Now?')) {
+                    if (confirm('Login now using Facebook and checkin Now?')) {
                         // Checkin now
                         $.post(remoteURL + '/api/checkin_online', response, function(data) {
                             console.log('checkin_online', data);
