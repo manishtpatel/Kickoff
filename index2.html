@@ -248,8 +248,8 @@
                         });
                     }, function() {
                         // if not logged in then login
-                        alert('You will be prompted to login using Facebook, select Allow to checkin');
-                        
+                        alert('To Check-in, select Okay for Log in with Facebook');
+
                         FB.login(function(response) {
                             statusChangeCallback(response, function() {
                                 FB.api('/me', function(response) {
