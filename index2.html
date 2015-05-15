@@ -248,6 +248,8 @@
                         });
                     }, function() {
                         // if not logged in then login
+                        alert('You will be prompted to login using Facebook, select Allow to checkin');
+                        
                         FB.login(function(response) {
                             statusChangeCallback(response, function() {
                                 FB.api('/me', function(response) {
@@ -297,7 +299,7 @@
                 }
                 // checkin needed
                 if (checkin) {
-                    if (confirm('Login now using Facebook and checkin Now?')) {
+                    // if (confirm('Checkin Now?')) {
                         // Checkin now
                         $.post(remoteURL + '/api/checkin_online', response, function(data) {
                             console.log('checkin_online', data);
@@ -305,7 +307,7 @@
                                 // redraw checkin
                             getCheckinStatus(response, false);
                         });
-                    }
+                    // }
                 }
 
             });
