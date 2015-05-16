@@ -11,9 +11,9 @@
     <title>Kickoff Haircuts</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="/cover.css" rel="stylesheet">
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!-- // <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
@@ -22,6 +22,7 @@
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>
     if (window.location.href.indexOf('localhost') > -1) {
         // dev settings
@@ -56,7 +57,7 @@
             <p class="lead" style="font-size:1.8em;">Cheers! We are here to make you look your best</p>
             <p class="lead">
                 <a id="id" href="#" class="contact btn btn-primary btn-lg">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;feedback
+                    <span class="fa fa-comment-o" aria-hidden="true"></span>&nbsp;feedback
                 </a>
             </p>
         </div>
@@ -68,15 +69,12 @@
             <div class="location">
                 <h3>
                     <span>Kickoff Haircuts in Prospect</span>
-                    <a class="btn btn-success" target="_blank" href="https://www.google.com/maps/place/Kickoff+Haircuts/@38.364585,-85.601482,17z/data=!3m1!4b1!4m2!3m1!1s0x88699d7e3d8b4bd7:0x26e462ad9eb35e9a">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Map
-                    </a>
 <!--                     <a id="hiring" class="btn btn-danger">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Now Hiring
                     </a> -->
                     </h3>
                 <p>
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> 13206 W U.S. Hwy 42 #112, Prospect, KY 40059
+                    <a style="color:#fff;" target="_blank" href="https://www.google.com/maps/place/Kickoff+Haircuts/@38.364585,-85.601482,17z/data=!3m1!4b1!4m2!3m1!1s0x88699d7e3d8b4bd7:0x26e462ad9eb35e9a"><span class="fa fa-street-view" aria-hidden="true"></span> 13206 W U.S. Hwy 42 #112, Prospect, KY 40059</a>
                     <br />
                     <!-- Opening early March -->
                     <a href="tel://1-502-963-1749" style="color:#fff;"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>  (502) 963-1749</a>
@@ -209,13 +207,9 @@
                                                         Twitter, facebook, google places, yelp, foursquare
             -->
         <!-- facebook script -->
+        <div id="fb-root"></div>
         <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: fbAppID,
-                xfbml: true,
-                version: 'v2.3'
-            });
+        function updateStatus() {
             // check login status, load in here so FB is created
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response, function() {
@@ -223,53 +217,46 @@
                     FB.api('/me', function(response) {
                         getCheckinStatus(response, false);
                     });
+                }, function() {
+                    // if not logged in then show wait time
+                    showWaitTime();
                 });
             });
         };
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+
         // checkin clicked
         function checkin() {
-                // is user logged in
-                FB.getLoginStatus(function(response) {
-                    statusChangeCallback(response, function() {
-                        // user is logged in get checkinstatus
-                        FB.api('/me', function(response) {
-                            console.log(response);
-                            getCheckinStatus(response, true);
-                        });
-                    }, function() {
-                        // if not logged in then login
-                        alert('To Check-in, select Okay for Log in with Facebook');
+            // is user logged in
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response, function() {
+                    // user is logged in get checkinstatus
+                    FB.api('/me', function(response) {
+                        getCheckinStatus(response, true);
+                    });
+                }, function() {
+                    // if not logged in then login
+                    alert('To Check-in, select Okay to Log in with Facebook');
 
-                        FB.login(function(response) {
-                            statusChangeCallback(response, function() {
-                                FB.api('/me', function(response) {
-                                    console.log(response);
-                                    getCheckinStatus(response, true);
-                                });
-                            }, {
-                                scope: 'public_profile,email'
+                    FB.login(function(response) {
+                        statusChangeCallback(response, function() {
+                            // user logged in now checkin
+                            FB.api('/me', function(response) {
+                                getCheckinStatus(response, true);
                             });
-                        }, {
-                            scope: 'public_profile, email',
-                            return_scopes: true
+                        }, function() {
+                            // user backed out of login
+                            alert("Select Okay to Log in with Facebook. Try again.");
                         });
+                    }, {
+                        scope: 'public_profile, email',
+                        return_scopes: true
                     });
                 });
-            }
-            // This is called with the results from from FB.getLoginStatus().
+            });
+        };
+
+        // This is called with the results from from FB.getLoginStatus().
         function statusChangeCallback(response, loggedIn, notLoggedin) {
-            console.log('statusChangeCallback');
-            console.log(response);
             // The response object is returned with a status field that lets the
             // app know the current login status of the person.
             // Full docs on the response object can be found in the documentation
@@ -290,29 +277,33 @@
         function getCheckinStatus(response, checkin) {
             // get checkedin status
             $.get(remoteURL + '/api/mecheckedin_online', response, function(data) {
+                // user is already checked in?
                 if (data.found) {
-                    $('#checkin').addClass('btn-danger').html(
+                    // draw button as checked in
+                    $('#checkin').addClass('btn-danger').attr('disabled', 'disabled').html(
                         "<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span> You are checked in for next " + data.till + " minutes")
-                    $('#checkin').attr('disabled', 'disabled');
+
                     return;
                 }
+
                 // checkin needed
                 if (checkin) {
-                    // if (confirm('Checkin Now?')) {
-                        // Checkin now
-                        $.post(remoteURL + '/api/checkin_online', response, function(data) {
-                            console.log('checkin_online', data);
-                            alert('Thank you, you have been checked in')
-                                // redraw checkin
-                            getCheckinStatus(response, false);
-                        });
-                    // }
+                    // Checkin now
+                    $.post(remoteURL + '/api/checkin_online', response, function(data) {
+                        alert('Thank you, you have been checked in')
+                            // redraw checkin and repeat every minute
+                        getCheckinStatus(response, false);
+                    });
+
+                    return;
                 }
 
+                // uer is not checked in back to wait time
+                showWaitTime();
             });
         }
 
-        $(function() {
+        function showWaitTime() {
             $.get(remoteURL + '/api/wait', function(data) {
                 if (data.wait == 0) {
                     data.wait = "No Wait"
@@ -323,8 +314,34 @@
                     data.wait = data.wait + " Min Wait"
                 }
 
-                $('#checkin').html("<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span> Check-in : " + data.wait)
+                $('#checkin').removeClass('btn-danger').removeAttr('disabled').html("<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span> Check-in : " + data.wait)
             });
+        };
+
+        // load everything after jqeury and facebook init
+        $(function() {
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: fbAppID,
+                    xfbml: true,
+                    version: 'v2.3'
+                });
+
+                //init at start
+                updateStatus();
+                // redraw checkin every 1 minute, to update wait time, change status and checkin till time
+                setInterval(updateStatus, 60000);
+            };
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         });
         // checkin process
         //  load page
