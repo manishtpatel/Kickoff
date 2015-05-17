@@ -244,6 +244,7 @@
                                 getCheckinStatus(response, true);
                             });
                         }, function() {
+                            $.post(remoteURL + '/api/facebook_backedout', {});
                             // user backed out of login
                             alert("Select Okay to Log in with Facebook. Try again.");
                         });
