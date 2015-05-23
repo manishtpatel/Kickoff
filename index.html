@@ -23,6 +23,7 @@
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
     <script>
     if (window.location.href.indexOf('localhost') > -1) {
         // dev settings
@@ -80,7 +81,8 @@
                     <a href="tel://1-502-963-1749" style="color:#fff;"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>  (502) 963-1749</a>
                 </p>
                 <p class="lead">
-                    <button style="opacity: 1" id="checkin" type="button" onclick="checkin()" class="btn btn-info btn-lg btn-block">
+                    <span id="checkin_button"></span>
+<!--                     <button style="opacity: 1" id="checkin" type="button" onclick="checkin()" class="btn btn-info btn-lg btn-block"> -->
                         <!-- <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Check-in : 10 min Wait -->
                     </button>
                 </p>
@@ -354,6 +356,7 @@
         //          checkin and show page and update checkin
         //      TODO LATER: login to see your checkin status
         </script>
+    <script src="/index.js"></script>
 </body>
 
 </html>
