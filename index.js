@@ -8,56 +8,53 @@
 // }
 var CheckinLink = React.createClass({displayName: "CheckinLink",
   getInitialState: function() {
-    // set required state for loading the component
-    return {
-      loading: true,
-      showCheckinForm: false
-    };
+    return checkinDataStore.initValue;
   },
   componentDidMount: function() {
     var component = this;
 
+    // bind event for triggering state update
+    $("body").on("checkinlink_setstate", function(event, data) {
+        component.setState(data);
+    });
+
     // once component mounts get status from server
-    this.resetState();
+    checkinDataStore.setFromServer(false);
 
-    // bind events
-    $("body").on("checkedin", function(data) {
-      component.resetState();
-      component.setState({showCheckinForm: false});
-    });
+    // // bind events
+    // $("body").on("checkedin", function(data) {
+    //   component.resetState();
+    //   component.setState({showCheckinForm: false});
+    // });
 
-    $("body").on("loading", function(data) {
-      component.setState({ loading: true });
-    });
-
-    // every one minute update
-    refreshWaitInterval = setInterval(function(){
-      component.resetState();
-    }, 60000);
+    // $("body").on("loading", function(data) {
+    //   component.setState({ loading: true });
+    // });
   },
   componentWillUnmount: function(){
-    $("body").off("checkedin");
-    $("body").off("loading");
-    clearInterval(refreshWaitInterval);
+    // $("body").off("checkedin");
+    // $("body").off("loading");
+    // clearInterval(refreshWaitInterval);
   },
-  resetState: function(){
-    var component = this;
+  // resetState: function(){
+  //   var component = this;
 
-    var checkinID = document.cookie.replace(/(?:(?:^|.*;\s*)checkinID\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+  //   var checkinID = document.cookie.replace(/(?:(?:^|.*;\s*)checkinID\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-    // load state from server here
-    $.get(remoteURL + '/api/myStatus', { checkinID: checkinID }, function(data) {
-        component.setState({ 
-          loading: false,  
-          open: data.open,
-          wait: data.wait,
-          checkedIn: data.checkedIn,
-          till: data.till
-        });
-    });
-  },
+  //   // load state from server here
+  //   $.get(remoteURL + '/api/myStatus', { checkinID: checkinID }, function(data) {
+  //       component.setState({ 
+  //         loading: false,  
+  //         open: data.open,
+  //         wait: data.wait,
+  //         checkedIn: data.checkedIn,
+  //         till: data.till
+  //       });
+  //   });
+  // },
   handleClick: function(event){
-    this.setState({ showCheckinForm: !this.state.showCheckinForm });
+    checkinDataStore.showCheckinForm(!this.state.showCheckinForm);
+    // this.setState({ showCheckinForm: !this.state.showCheckinForm });
   },
   render: function() {
   	  var buttonStyle = {
@@ -117,21 +114,26 @@ var CheckinLink = React.createClass({displayName: "CheckinLink",
 var CheckinForm = React.createClass({displayName: "CheckinForm",
   handleSubmit: function(event){
     event.preventDefault();
-    $('body').trigger('loading');
+
+    // checkinDataStore.loading();
+
+    // $('body').trigger('loading');
 
     var formData = {
       name: React.findDOMNode(this.refs.name).value.trim(),
       email: React.findDOMNode(this.refs.email).value.trim()
     };
 
-    $.post(remoteURL + '/api/checkin_online_freeform', formData, function(data) {
-      alert('Thank you, you have been checked in');
-      
-      // add cookie so we remember him, ajax is making request to another domain so set cookie in js
-      document.cookie = 'checkinID=' + data._id + '; Path=/; Expires=' + new Date(Date.now() + 999999999999);
+    checkinDataStore.newCheckin(formData);
 
-      $("body").trigger("checkedin", data);
-    });
+    // $.post(remoteURL + '/api/checkin_online_freeform', formData, function(data) {
+    //   alert('Thank you, you have been checked in');
+      
+    //   // add cookie so we remember him, ajax is making request to another domain so set cookie in js
+    //   document.cookie = 'checkinID=' + data._id + '; Path=/; Expires=' + new Date(Date.now() + 999999999999);
+
+    //   $("body").trigger("checkedin", data);
+    // });
   },
   render: function() {
     var myStyle = {
@@ -155,9 +157,95 @@ var CheckinForm = React.createClass({displayName: "CheckinForm",
   }
 });
 
-$(function(){
-  React.render(
-    React.createElement(CheckinLink, null),
-      document.getElementById('checkin_button')
-  );  
+checkinDataStore = function() {
+    // initial value
+    var nowValue = {
+        loading: true,
+        open: false,
+        wait: 0,
+        checkedIn: false,
+        till: 0,
+        showCheckinForm: false
+    };
+
+    // do update manipulation based on state and setstate
+    var triggerSetState = function(loadingStill) {
+        // apply rules here first
+        if (!nowValue.open) {
+            nowValue.showCheckinForm = false;
+        }
+
+        if (nowValue.checkedIn) {
+            nowValue.showCheckinForm = false;
+        }
+
+        nowValue.loading = !!loadingStill;
+
+        // now trigger setState with new Value
+        $('body').trigger('checkinlink_setstate', nowValue);
+    };
+
+    // // update loading and setstate
+    // var updateLoading = function(loading) {
+    //     nowValue.loading = loading;
+
+    //     triggerSetState();
+    // };
+
+    // get value from server and setstate, optional setloading as multiple ajax may want to update it at the end only
+    var setFromServer = function(laodingStill) {
+        var checkinID = document.cookie.replace(/(?:(?:^|.*;\s*)checkinID\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+        // load state from server here
+        $.get(remoteURL + '/api/myStatus', {
+            checkinID: checkinID
+        }, function(data) {
+            nowValue.open = data.open;
+            nowValue.wait = data.wait;
+            nowValue.checkedIn = data.checkedIn;
+            nowValue.till = data.till;
+
+            triggerSetState(laodingStill);
+        });
+    };
+
+    // show checkin form
+    var showCheckinForm = function(show) {
+        nowValue.showCheckinForm = show;
+
+        triggerSetState();
+    }
+
+    // newcheckin process
+    var newCheckin = function(formData) {
+        triggerSetState(true);
+
+        $.post(remoteURL + '/api/checkin_online_freeform', formData, function(data) {
+            alert('Thank you, you have been checked in');
+
+            // add cookie so we remember him, ajax is making request to another domain so set cookie in js
+            document.cookie = 'checkinID=' + data._id + '; Path=/; Expires=' + new Date(Date.now() + 999999999999);
+
+            setFromServer(false);
+        });
+    };
+
+    // every one minute update
+    setInterval(setFromServer, 60000);
+
+    return {
+        // get initial value
+        initValue: nowValue,
+        setFromServer: setFromServer,
+        showCheckinForm: showCheckinForm,
+        newCheckin: newCheckin
+    }
+}();
+
+
+
+$(function() {
+    React.render( React.createElement(CheckinLink, null) ,
+        document.getElementById('checkin_button')
+    );
 })
