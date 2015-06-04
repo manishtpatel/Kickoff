@@ -220,4 +220,3 @@ $(function() {
         document.getElementById('checkin_button')
     );
 })
-
