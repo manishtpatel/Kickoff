@@ -1,202 +1,217 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--<link rel="icon" href="../../favicon.ico">-->
-    <title>Kickoff Haircuts</title>
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- Custom styles for this template -->
-    <link href="/cover.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- // <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--<link rel="icon" href="../../favicon.ico">-->
+  <title>Kickoff Haircuts</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Custom styles for this template -->
+  <link href="/cover.css" rel="stylesheet">
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <!-- // <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-    <script>
+  <script>
     if (window.location.href.indexOf('localhost') > -1) {
-        // dev settings
-        remoteURL = "http://localhost:1000"
-        fbAppID = '665166830283009'
+      // dev settings
+      remoteURL = "http://localhost:1000"
+      fbAppID = '665166830283009'
     } else {
-        // prod settings
-        remoteURL = "http://kickoffcheckin.azurewebsites.net"
-        fbAppID = '585127968286896'
+      // prod settings
+      remoteURL = "http://kickoffcheckin.azurewebsites.net"
+      fbAppID = '585127968286896'
     }
-    </script>
+  </script>
 </head>
 
 <body>
-    <div class="header">
-        <div class="content clearfix">
-            <a href="/">
-                <img src="/logo.png" class="logo pull-left" />
-            </a>
-            <ul class="header-nav pull-right">
-                <!--<li class="active"><a href="#">Home</a></li>-->
-                <li><a href="#locations"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;<span class="hidden-xs">Online&nbsp;</span>Check-in</a></li>
-                <!--<li><a href="#">Contact</a></li>-->
-            </ul>
-        </div>
+  <div class="header">
+    <div class="content clearfix">
+      <a href="/">
+        <img src="/logo.png" class="logo pull-left" />
+      </a>
+      <ul class="header-nav pull-right">
+        <!--<li class="active"><a href="#">Home</a></li>-->
+        <li>
+          <a href="#locations">
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>&nbsp;
+            <span class="hidden-xs">Online&nbsp;</span>Check-in</a>
+        </li>
+        <!--<li><a href="#">Contact</a></li>-->
+      </ul>
     </div>
-    <!--Use Tab and Tab-Name to display Sections-->
-    <!--Centered content put in the tab-->
-    <div class="tab tab-main">
-        <div class="content">
-            <h1>Haircuts Exclusively for Everybody</h1>
-            <p class="lead" style="font-size:1.8em;">Cheers! We are here to make you look your best</p>
-            <p class="lead">
-                <a id="id" href="#" class="contact btn btn-primary btn-lg">
-                    <span class="fa fa-comment-o" aria-hidden="true"></span>&nbsp;feedback
-                </a>
-            </p>
-        </div>
-    </div>
-    <div class="tab tab-locations">
-        <div class="content">
-            <h1 id="locations" style="margin-top: 0px; display:inline-block">Online Check-in</h1>&nbsp;&nbsp;<em class="hidden-xs" style="display:inline-block">No more waiting, check-in online and walk right in</em>
-            <hr style="margin-top:0;" />
-            <div class="location">
-                <h3>
-                    <span>Kickoff Haircuts in Prospect</span>
-                </h3>
-                <p>
-                    <a style="color:#fff;" target="_blank" href="https://www.google.com/maps/place/Kickoff+Haircuts/@38.364585,-85.601482,17z/data=!3m1!4b1!4m2!3m1!1s0x88699d7e3d8b4bd7:0x26e462ad9eb35e9a"><span class="fa fa-street-view" aria-hidden="true"></span> 13206 W U.S. Hwy 42 #112, Prospect, KY 40059</a>
-                    <br />
-                    <!-- Opening early March -->
-                    <a href="tel://1-502-963-1749" style="color:#fff;"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>  (502) 963-1749</a>
-                </p>
-                <p class="lead">
-                    <span id="checkin_button"></span>
-                </button>
-            </p>
-            <div>
-                <div>
-                    <b style="width:80px; display:inline-block">Mon-Fri</b>
-                    <span>10:00 am – 8:00 pm</span>
-                </div>
-                <div>
-                    <b style="width:80px; display:inline-block">Saturday</b>
-                    <span>11:00 am – 6:00 pm</span>
-                </div>
-                <div>
-                    <b style="width:80px; display:inline-block">Sunday</b>
-                    <span>11:00 am – 5:00 pm</span>
-                </div>
-            </div>
-            <div class="location">
-                <h3>Stay tuned for more store announcements</h3>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="tab tab-footer">
+  </div>
+  <!--Use Tab and Tab-Name to display Sections-->
+  <!--Centered content put in the tab-->
+  <div class="tab tab-main">
     <div class="content">
-        <div class="clearfix">
-            <p>
-                <span>
-                    &copy;
-                    Kickoff Haircuts™ 2015
-                </span>
-                <span style="padding: 6px 12px;">|</span>
-                <a id="hiring" href="#">Apply for a Job</a>
-            </p>
-                <!--<div class="pull-left">
+      <h1>Haircuts Exclusively for Everybody</h1>
+      <p class="lead" style="font-size:1.8em;">Cheers! We are here to make you look your best</p>
+      <p class="lead">
+        <a id="id" href="#" class="contact btn btn-primary btn-lg">
+          <span class="fa fa-comment-o" aria-hidden="true"></span>&nbsp;feedback
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="tab tab-coupon">
+    <div class="content">
+      <h3 style="margin-top: 0px">
+        Special Offer: $9.99 Haircut
+      </h3>
+      <div>
+        Valid for limited time only. Offer can't be combined with any other offer.
+      </div>
+    </div>
+  </div>
+  <div class="tab tab-locations">
+    <div class="content">
+      <h1 id="locations" style="margin-top: 0px; display:inline-block">Online Check-in</h1>&nbsp;&nbsp;
+      <em class="hidden-xs" style="display:inline-block">No more waiting, check-in online and walk right in</em>
+      <hr style="margin-top:0;" />
+      <div class="location">
+        <h3>
+          <span>Kickoff Haircuts in Prospect</span>
+        </h3>
+        <p>
+          <a style="color:#fff;" target="_blank" href="https://www.google.com/maps/place/Kickoff+Haircuts/@38.364585,-85.601482,17z/data=!3m1!4b1!4m2!3m1!1s0x88699d7e3d8b4bd7:0x26e462ad9eb35e9a">
+            <span class="fa fa-street-view" aria-hidden="true"></span> 13206 W U.S. Hwy 42 #112, Prospect, KY 40059</a>
+          <br />
+          <!-- Opening early March -->
+          <a href="tel://1-502-963-1749" style="color:#fff;">
+            <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> (502) 963-1749</a>
+        </p>
+        <p class="lead">
+          <span id="checkin_button"></span>
+        </p>
+        <div>
+          <div>
+            <b style="width:80px; display:inline-block">Mon-Fri</b>
+            <span>10:00 am – 8:00 pm</span>
+          </div>
+          <div>
+            <b style="width:80px; display:inline-block">Saturday</b>
+            <span>11:00 am – 6:00 pm</span>
+          </div>
+          <div>
+            <b style="width:80px; display:inline-block">Sunday</b>
+            <span>11:00 am – 5:00 pm</span>
+          </div>
+        </div>
+        <div class="location">
+          <h3>Stay tuned for more store announcements</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab tab-footer">
+    <div class="content">
+      <div class="clearfix">
+        <p>
+          <span>
+            &copy; Kickoff Haircuts™ 2015
+          </span>
+          <span style="padding: 6px 12px;">|</span>
+          <a id="hiring" href="#">Apply for a Job</a>
+        </p>
+        <!--<div class="pull-left">
                                                                                                                     tweet
                                                                                                                     <a href="https://twitter.com/kickoffhaircuts" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @kickoffhaircuts</a>
                         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                     </div>-->
-                    <!-- yelp -->
-                <!-- <div id="yelp-biz-badge-plain-SUwD6Sbk117pwlChY9mnoA"><a href="http://www.yelp.com/biz/kickoff-haircuts-prospect">Check out Kickoff Haircuts on Yelp</a></div><script type="text/javascript">(function(d, t) {var g = d.createElement(t);var s = d.getElementsByTagName(t)[0];g.id = "yelp-biz-badge-script-plain-SUwD6Sbk117pwlChY9mnoA";g.src = "//dyn.yelpcdn.com/biz_badge_js/en_US/plain/SUwD6Sbk117pwlChY9mnoA.js";s.parentNode.insertBefore(g, s);}(document, 'script'));</script>
+        <!-- yelp -->
+        <!-- <div id="yelp-biz-badge-plain-SUwD6Sbk117pwlChY9mnoA"><a href="http://www.yelp.com/biz/kickoff-haircuts-prospect">Check out Kickoff Haircuts on Yelp</a></div><script type="text/javascript">(function(d, t) {var g = d.createElement(t);var s = d.getElementsByTagName(t)[0];g.id = "yelp-biz-badge-script-plain-SUwD6Sbk117pwlChY9mnoA";g.src = "//dyn.yelpcdn.com/biz_badge_js/en_US/plain/SUwD6Sbk117pwlChY9mnoA.js";s.parentNode.insertBefore(g, s);}(document, 'script'));</script>
             -->
-            <!-- facebook -->
-            <div class="pull-left">
-                <div class="fb-like" data-href="http://facebook.com/kickoffhaircuts/" data-share="true" data-width="310" data-show-faces="true">
-                </div>
-            </div>
+        <!-- facebook -->
+        <div class="pull-left">
+          <div class="fb-like" data-href="http://facebook.com/kickoffhaircuts/" data-share="true" data-width="310" data-show-faces="true">
+          </div>
         </div>
+      </div>
     </div>
-        <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
         ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <!--script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script-->
-            <!-- // <script src="../../assets/js/docs.min.js"></script> -->
-            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-            <!-- // <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <!-- // <script src="../../assets/js/docs.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- // <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
     <script>
-        // Include the UserVoice JavaScript SDK (only needed once on a page)
-        UserVoice = window.UserVoice || [];
-        (function() {
-            var uv = document.createElement('script');
-            uv.type = 'text/javascript';
-            uv.async = true;
-            uv.src = '//widget.uservoice.com/dTeshIom12e6OSi4Efs4SA.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(uv, s)
-        })();
-        //
-        // UserVoice Javascript SDK developer documentation:
-        // https://www.uservoice.com/o/javascript-sdk
-        //
-        // Set colors
-        UserVoice.push(['set', {
-            accent_color: '#448dd6',
-            trigger_color: 'white',
-            trigger_background_color: 'rgba(46, 49, 51, 0.6)'
-        }]);
-        // Identify the user and pass traits
-        // To enable, replace sample data with actual user traits and uncomment the line
-        UserVoice.push(['identify', {
-            //email:      'john.doe@example.com', // User’s email address
-            //name:       'John Doe', // User’s real name
-            //created_at: 1364406966, // Unix timestamp for the date the user signed up
-            //id:         123, // Optional: Unique id of the user (if set, this should not change)
-            //type:       'Owner', // Optional: segment your users by type
-            //account: {
-            //  id:           123, // Optional: associate multiple users with a single account
-            //  name:         'Acme, Co.', // Account name
-            //  created_at:   1364406966, // Unix timestamp for the date the account was created
-            //  monthly_rate: 9.99, // Decimal; monthly rate of the account
-            //  ltv:          1495.00, // Decimal; lifetime value of the account
-            //  plan:         'Enhanced' // Plan name for the account
-            //}
-        }]);
-        // Add default trigger to the bottom-right corner of the window:
-        // UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'top-right' }]);
-        // Or, use your own custom trigger:
-        UserVoice.push(['addTrigger', '#id', {
-            mode: 'contact'
-        }]);
-        UserVoice.push(['addTrigger', '#hiring', {
-            mode: 'contact'
-        }]);
-        // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
-        UserVoice.push(['autoprompt', {}]);
+      // Include the UserVoice JavaScript SDK (only needed once on a page)
+      UserVoice = window.UserVoice || [];
+      (function() {
+        var uv = document.createElement('script');
+        uv.type = 'text/javascript';
+        uv.async = true;
+        uv.src = '//widget.uservoice.com/dTeshIom12e6OSi4Efs4SA.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(uv, s)
+      })();
+      //
+      // UserVoice Javascript SDK developer documentation:
+      // https://www.uservoice.com/o/javascript-sdk
+      //
+      // Set colors
+      UserVoice.push(['set', {
+        accent_color: '#448dd6',
+        trigger_color: 'white',
+        trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+      }]);
+      // Identify the user and pass traits
+      // To enable, replace sample data with actual user traits and uncomment the line
+      UserVoice.push(['identify', {
+        //email:      'john.doe@example.com', // User’s email address
+        //name:       'John Doe', // User’s real name
+        //created_at: 1364406966, // Unix timestamp for the date the user signed up
+        //id:         123, // Optional: Unique id of the user (if set, this should not change)
+        //type:       'Owner', // Optional: segment your users by type
+        //account: {
+        //  id:           123, // Optional: associate multiple users with a single account
+        //  name:         'Acme, Co.', // Account name
+        //  created_at:   1364406966, // Unix timestamp for the date the account was created
+        //  monthly_rate: 9.99, // Decimal; monthly rate of the account
+        //  ltv:          1495.00, // Decimal; lifetime value of the account
+        //  plan:         'Enhanced' // Plan name for the account
+        //}
+      }]);
+      // Add default trigger to the bottom-right corner of the window:
+      // UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'top-right' }]);
+      // Or, use your own custom trigger:
+      UserVoice.push(['addTrigger', '#id', {
+        mode: 'contact'
+      }]);
+      UserVoice.push(['addTrigger', '#hiring', {
+        mode: 'contact'
+      }]);
+      // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
+      UserVoice.push(['autoprompt', {}]);
     </script>
     <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-57801538-1', 'auto');
-        ga('send', 'pageview');
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-57801538-1', 'auto');
+      ga('send', 'pageview');
     </script>
     <!-- Social networking maintance Twitter, facebook, google places, yelp, foursquare -->
     <div id="fb-root"></div>
@@ -204,4 +219,5 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
     <script src="/index.js"></script>
 </body>
+
 </html>
