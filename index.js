@@ -1,120 +1,152 @@
 // DataStore for CheckinLink
-// { 
+// {
 //    loading: true,
 //    wait: 0,
 //    checkedIn: false,
 //    till: 10,
 //    showCheckinForm: false
 // }
-var CheckinLink = React.createClass({displayName: "CheckinLink",
-  getInitialState: function() {
-    return checkinDataStore.initValue;
-  },
-  componentDidMount: function() {
-    var component = this;
+var CheckinLink = React.createClass({
+    displayName: "CheckinLink",
 
-    // bind event for triggering state update
-    $("body").on("checkinlink_setstate", function(event, data) {
-        component.setState(data);
-    });
+    getInitialState: function () {
+        return checkinDataStore.initValue;
+    },
+    componentDidMount: function () {
+        var component = this;
 
-    // once component mounts get status from server
-    checkinDataStore.setFromServer(false);
-  },
-  componentWillUnmount: function(){
-  },
-  handleClick: function(event){
-    checkinDataStore.showCheckinForm(!this.state.showCheckinForm);
-  },
-  render: function() {
-  	  var buttonStyle = {
-  	    opacity: 1
-  	  };
-      var btnClass = "btn btn-info btn-lg btn-block" + ((this.state.checkedIn)? " btn-danger": " ");
-      var canCheckin = false;
-      var displayMessage = "Check-in : ";
-      var mapMarkerClassName = "glyphicon glyphicon-map-marker";
-      var showCheckinFormStyle = {
-        display : ((this.state.showCheckinForm)? "" : "none")
-      } 
+        // bind event for triggering state update
+        $("body").on("checkinlink_setstate", function (event, data) {
+            component.setState(data);
+        });
 
-      if(this.state.loading){
-        return (
-          React.createElement("div", null, 
-            React.createElement("button", {style: buttonStyle, type: "button", disabled: true, className: "btn btn-info btn-lg btn-block"}, 
-              React.createElement("span", {className: "fa fa-refresh fa-spin", "aria-hidden": "true"}), " "
-            )
-          )
-        );
-      }
+        // once component mounts get status from server
+        checkinDataStore.setFromServer(false);
+    },
+    componentWillUnmount: function () {},
+    handleClick: function (event) {
+        checkinDataStore.showCheckinForm(!this.state.showCheckinForm);
+    },
+    render: function () {
+        var buttonStyle = {
+            opacity: 1
+        };
+        var btnClass = "btn btn-info btn-lg btn-block" + (this.state.checkedIn ? " btn-danger" : " ");
+        var canCheckin = false;
+        var displayMessage = "Check-in : ";
+        var mapMarkerClassName = "glyphicon glyphicon-map-marker";
+        var showCheckinFormStyle = {
+            display: this.state.showCheckinForm ? "" : "none"
+        };
 
-      // build display message and set disabled
-      if(this.state.open){
-        if(this.state.checkedIn){
-          displayMessage += "You are checked in for next " + this.state.till + " minutes"
-        } else {
-          canCheckin = true;
-
-          if(this.state.wait == 0){
-            displayMessage += "No Wait";
-          } else {
-            displayMessage += this.state.wait + " Min Wait";
-          }
+        if (this.state.loading) {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "button",
+                    { style: buttonStyle, type: "button", disabled: true, className: "btn btn-info btn-lg btn-block" },
+                    React.createElement("span", { className: "fa fa-refresh fa-spin", "aria-hidden": "true" }),
+                    " "
+                )
+            );
         }
-      } else {
-        displayMessage += "Closed Now";
-      }
-      
-      return (
-      	React.createElement("div", null, 
-          React.createElement("div", null, 
-        		React.createElement("button", {style: buttonStyle, type: "button", disabled: !canCheckin, onClick: this.handleClick, className: btnClass}, 
-              React.createElement("span", {style: showCheckinFormStyle}, React.createElement("span", {className: "fa fa-arrow-down", "aria-hidden": "true"}), "  "), 
-        			React.createElement("span", {className: mapMarkerClassName, "aria-hidden": "true"}), " ", 
-        			displayMessage, "  ", 
-              React.createElement("span", {style: showCheckinFormStyle}, React.createElement("span", {className: "fa fa-arrow-down", "aria-hidden": "true"}), " ")
-        		)
-          ), 
-          React.createElement(CheckinForm, {show: this.state.showCheckinForm})
-      	)
-    );
-  }
+
+        // build display message and set disabled
+        if (this.state.open) {
+            if (this.state.checkedIn) {
+                displayMessage += "You are checked in for next " + this.state.till + " minutes";
+            } else {
+                canCheckin = true;
+
+                if (this.state.wait == 0) {
+                    displayMessage += "No Wait";
+                } else {
+                    displayMessage += this.state.wait + " Min Wait";
+                }
+            }
+        } else {
+            displayMessage += "Closed Now";
+        }
+
+        return React.createElement(
+            "div",
+            null,
+            React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "button",
+                    { style: buttonStyle, type: "button", disabled: !canCheckin, onClick: this.handleClick, className: btnClass },
+                    React.createElement(
+                        "span",
+                        { style: showCheckinFormStyle },
+                        React.createElement("span", { className: "fa fa-arrow-down", "aria-hidden": "true" }),
+                        "  "
+                    ),
+                    React.createElement("span", { className: mapMarkerClassName, "aria-hidden": "true" }),
+                    " ",
+                    displayMessage,
+                    "  ",
+                    React.createElement(
+                        "span",
+                        { style: showCheckinFormStyle },
+                        React.createElement("span", { className: "fa fa-arrow-down", "aria-hidden": "true" }),
+                        " "
+                    )
+                )
+            ),
+            React.createElement(CheckinForm, { show: this.state.showCheckinForm })
+        );
+    }
 });
 
-var CheckinForm = React.createClass({displayName: "CheckinForm",
-  handleSubmit: function(event){
-    event.preventDefault();
+var CheckinForm = React.createClass({
+    displayName: "CheckinForm",
 
-    var formData = {
-      name: React.findDOMNode(this.refs.name).value.trim(),
-      email: React.findDOMNode(this.refs.email).value.trim()
-    };
+    handleSubmit: function (event) {
+        event.preventDefault();
 
-    checkinDataStore.newCheckin(formData);
-  },
-  render: function() {
-    var myStyle = {
-      display: ((this.props.show) ? "" : "none"),
-      'padding': 10
-    };
+        var formData = {
+            name: React.findDOMNode(this.refs.name).value.trim(),
+            email: React.findDOMNode(this.refs.email).value.trim()
+        };
 
-    return (
-      React.createElement("div", {style: myStyle}, 
-        React.createElement("form", {onSubmit: this.handleSubmit}, 
-          React.createElement("div", {className: "form-group"}, 
-            React.createElement("input", {type: "text", className: "form-control", required: true, placeholder: "Full Name", ref: "name"})
-          ), 
-          React.createElement("div", {className: "form-group"}, 
-            React.createElement("input", {type: "email", className: "form-control", placeholder: "Enter eMail", ref: "email"})
-          ), 
-          React.createElement("button", {type: "submit", className: "btn btn-danger btn-lg"}, "Check-in")
-        )
-      )
-    );
-  }
+        checkinDataStore.newCheckin(formData);
+    },
+    render: function () {
+        var myStyle = {
+            display: this.props.show ? "" : "none",
+            'padding': 10
+        };
+
+        return React.createElement(
+            "div",
+            { style: myStyle },
+            React.createElement(
+                "form",
+                { onSubmit: this.handleSubmit },
+                React.createElement(
+                    "div",
+                    { className: "form-group" },
+                    React.createElement("input", { type: "text", className: "form-control", required: true, placeholder: "Full Name", ref: "name" })
+                ),
+                React.createElement(
+                    "div",
+                    { className: "form-group" },
+                    React.createElement("input", { type: "email", className: "form-control", placeholder: "Enter eMail", ref: "email" })
+                ),
+                React.createElement(
+                    "button",
+                    { type: "submit", className: "btn btn-danger btn-lg" },
+                    "Check-in"
+                )
+            )
+        );
+    }
 });
 
-checkinDataStore = function() {
+checkinDataStore = function () {
     // initial value
     var nowValue = {
         loading: true,
@@ -126,7 +158,7 @@ checkinDataStore = function() {
     };
 
     // do update manipulation based on state and setstate
-    var triggerSetState = function(loadingStill) {
+    var triggerSetState = function (loadingStill) {
         // apply rules here first
         if (!nowValue.open) {
             nowValue.showCheckinForm = false;
@@ -143,13 +175,13 @@ checkinDataStore = function() {
     };
 
     // get value from server and setstate, optional setloading as multiple ajax may want to update it at the end only
-    var setFromServer = function(laodingStill) {
+    var setFromServer = function (laodingStill) {
         var checkinID = document.cookie.replace(/(?:(?:^|.*;\s*)checkinID\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
         // load state from server here
         $.get(remoteURL + '/api/myStatus', {
             checkinID: checkinID
-        }, function(data) {
+        }, function (data) {
             nowValue.open = data.open;
             nowValue.wait = data.wait;
             nowValue.checkedIn = data.checkedIn;
@@ -160,17 +192,17 @@ checkinDataStore = function() {
     };
 
     // show checkin form
-    var showCheckinForm = function(show) {
+    var showCheckinForm = function (show) {
         nowValue.showCheckinForm = show;
 
         triggerSetState();
-    }
+    };
 
     // newcheckin process
-    var newCheckin = function(formData) {
+    var newCheckin = function (formData) {
         triggerSetState(true);
 
-        $.post(remoteURL + '/api/checkin_online', formData, function(data) {
+        $.post(remoteURL + '/api/checkin_online', formData, function (data) {
             alert('Thank you, you have been checked in');
 
             // add cookie so we remember him, ajax is making request to another domain so set cookie in js
@@ -189,20 +221,21 @@ checkinDataStore = function() {
         setFromServer: setFromServer,
         showCheckinForm: showCheckinForm,
         newCheckin: newCheckin
-    }
+    };
 }();
 
 // load facebook api
-$(function() {
-    window.fbAsyncInit = function() {
+$(function () {
+    window.fbAsyncInit = function () {
         FB.init({
             appId: fbAppID,
             xfbml: true,
             version: 'v2.3'
         });
     };
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+    (function (d, s, id) {
+        var js,
+            fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
             return;
         }
@@ -210,13 +243,10 @@ $(function() {
         js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    })(document, 'script', 'facebook-jssdk');
 });
 
 // render reactjs
-$(function() {
-    React.render( 
-        React.createElement(CheckinLink, null) ,
-        document.getElementById('checkin_button')
-    );
-})
+$(function () {
+    React.render(React.createElement(CheckinLink, null), document.getElementById('checkin_button'));
+});

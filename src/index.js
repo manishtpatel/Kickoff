@@ -1,5 +1,5 @@
 // DataStore for CheckinLink
-// { 
+// {
 //    loading: true,
 //    wait: 0,
 //    checkedIn: false,
@@ -36,7 +36,7 @@ var CheckinLink = React.createClass({
       var mapMarkerClassName = "glyphicon glyphicon-map-marker";
       var showCheckinFormStyle = {
         display : ((this.state.showCheckinForm)? "" : "none")
-      } 
+      }
 
       if(this.state.loading){
         return (
@@ -64,7 +64,7 @@ var CheckinLink = React.createClass({
       } else {
         displayMessage += "Closed Now";
       }
-      
+
       return (
       	<div>
           <div>
@@ -215,7 +215,7 @@ $(function() {
 
 // render reactjs
 $(function() {
-    React.render( 
+    React.render(
         <CheckinLink /> ,
         document.getElementById('checkin_button')
     );
