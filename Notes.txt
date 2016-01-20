@@ -1,4 +1,7 @@
-To compile react use following command
-  babel --presets react src --watch --out-dir ./
+Build Process
+      babel --presets react src --watch --out-dir ./
+      Start local server using    http-server
 
-Start local server using http-server
+
+
+Features
