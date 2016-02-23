@@ -11,7 +11,7 @@ var CheckinLink = React.createClass({
     return checkinDataStore.initValue;
   },
   componentDidMount: function() {
-    var component = this;
+    var component = this; 
 
     // bind event for triggering state update
     $("body").on("checkinlink_setstate", function(event, data) {
