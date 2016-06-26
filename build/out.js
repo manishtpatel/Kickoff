@@ -250,3 +250,5 @@ $(function () {
 $(function () {
     React.render(React.createElement(CheckinLink, null), document.getElementById('checkin_button'));
 });
+
+//# sourceMappingURL=out.js.map

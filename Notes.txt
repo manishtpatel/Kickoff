@@ -1,7 +1,0 @@
-Build Process
-      babel --presets react src --watch --out-dir ./
-      Start local server using    http-server
-
-
-
-Features
